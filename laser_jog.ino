@@ -64,9 +64,6 @@ static unsigned const char PROGMEM logo16_glcd_bmp[] =
 #error("Height incorrect, please fix Adafruit_SSD1306.h!");
 #endif
 
-
-
-
 void setup()
 {
   stepper1.setMaxSpeed(1000.0);
@@ -74,29 +71,22 @@ void setup()
 
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
-  // init done
-
-  display.display(); // show splashscreen
-  delay(2000);
   display.clearDisplay();   // clears the screen and buffer
-
 }
 
 long oldPosition  = -999;
 
 void loop()
 {
-  // encoder update (from 'basic' lib example
+  // encoder update (from 'basic' lib example)
   long newPosition = myEnc.read();
   if (newPosition != oldPosition) {
     oldPosition = newPosition;
     Serial.println(newPosition);
-//    stepper1.moveTo(newPosition * 40); // this makes 360 in encoder ticks = one rev
-// 200 stepper steps per rev  VS  96 encoder steps per rev
-    stepper1.moveTo(newPosition * int((200*MICRO_STEP/96))); // this makes 360 in encoder ticks = one rev
+    // 200 stepper steps per rev  VS  96 encoder steps per rev
+    stepper1.moveTo(newPosition * int((200 * MICRO_STEP / 96))); // this is one-to-one
   }
 
-  //  stepper1.run();
   updateDisplay(newPosition);
   stepper1.runToPosition();
 
