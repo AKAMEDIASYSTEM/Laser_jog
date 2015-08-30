@@ -19,8 +19,8 @@
 #define MICRO_STEP 8  // microstepping - this is the easydriver default
 
 // Define some steppers and the pins the will use
-AccelStepper stepper1(AccelStepper::DRIVER, step_pin_1, dir_pin_1); // Defaults to AccelStepper::FULL4WIRE (4 pins) on 2, 3, 4, 5
-//AccelStepper stepper2(AccelStepper::DRIVER, step_pin_1, dir_pin_1);
+// Defaults to AccelStepper::FULL4WIRE (4 pins) on 2, 3, 4, 5
+AccelStepper stepper1(AccelStepper::DRIVER, step_pin_1, dir_pin_1);
 
 // PINS
 #define OLED_RESET 4  // FWIW this isn't used right now, as my i2c OLED screen only has 4 inputs
@@ -31,11 +31,12 @@ AccelStepper stepper1(AccelStepper::DRIVER, step_pin_1, dir_pin_1); // Defaults 
 // connect Encoder to digital 3
 
 Adafruit_SSD1306 display(OLED_RESET);
+
+
 // Change these two numbers to the pins connected to your encoder.
 //   Best Performance: both pins have interrupt capability
 //   Good Performance: only the first pin has interrupt capability
 //   Low Performance:  neither pin has interrupt capability
-
 Encoder myEnc(3, 5);
 
 
@@ -70,6 +71,10 @@ static unsigned const char PROGMEM logo16_glcd_bmp[] =
 
 void setup()
 {
+  pinMode(MS1, OUTPUT);
+  pinMode(MS2, OUTPUT);
+  digitalWrite(MS1, HIGH); // ms1 and ms2 high for 8x microstepping
+  digitalWrite(MS2, HIGH); // ms1 and ms2 high for 8x microstepping
   stepper1.setMaxSpeed(3200.0);
   stepper1.setAcceleration(1000.0);
 
@@ -93,5 +98,4 @@ void loop()
 
   updateDisplay(newPosition);
   stepper1.runToPosition();
-
 }
