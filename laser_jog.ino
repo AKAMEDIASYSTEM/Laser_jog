@@ -1,8 +1,9 @@
 #include <SPI.h>
 
-//laser_jog
-//dumb joining of various demos to make stepper-motor jog wheel for z axis
-//of cheap lasercutter
+// laser_jog
+// dumb joining of various demos to make stepper-motor jog wheel for z axis
+// of cheap lasercutter
+// for 5v pro trinket
 //AKA 2015
 
 #include <AccelStepper.h>
