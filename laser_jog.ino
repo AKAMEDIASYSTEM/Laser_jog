@@ -1,3 +1,5 @@
+#include <SPI.h>
+
 //laser_jog
 //dumb joining of various demos to make stepper-motor jog wheel for z axis
 //of cheap lasercutter
@@ -9,17 +11,19 @@
 #include <Adafruit_SSD1306.h>
 #include <Encoder.h>
 
-#define step_pin_1 A2
-#define dir_pin_1 A3
+#define step_pin_1 10
+#define dir_pin_1 11
+#define ms1 6
+#define ms2 8
 
-#define MICRO_STEP 8  // microstepping
+#define MICRO_STEP 8  // microstepping - this is the easydriver default
 
 // Define some steppers and the pins the will use
 AccelStepper stepper1(AccelStepper::DRIVER, step_pin_1, dir_pin_1); // Defaults to AccelStepper::FULL4WIRE (4 pins) on 2, 3, 4, 5
 //AccelStepper stepper2(AccelStepper::DRIVER, step_pin_1, dir_pin_1);
 
 // PINS
-#define OLED_RESET 4
+#define OLED_RESET 4  // FWIW this isn't used right now, as my i2c OLED screen only has 4 inputs
 // connect SCL to A5
 // connect SDA to A4
 // encoder wiring bildr.org/2012/08/rotary-encoder-arduino/
@@ -66,7 +70,7 @@ static unsigned const char PROGMEM logo16_glcd_bmp[] =
 
 void setup()
 {
-  stepper1.setMaxSpeed(1000.0);
+  stepper1.setMaxSpeed(3200.0);
   stepper1.setAcceleration(1000.0);
 
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
