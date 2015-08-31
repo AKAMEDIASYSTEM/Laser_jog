@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -138,11 +138,12 @@
 <wire x1="76.2" y1="33.02" x2="81.28" y2="27.94" width="0" layer="20" curve="-90"/>
 <wire x1="81.28" y1="5.08" x2="76.2" y2="0" width="0" layer="20" curve="-90"/>
 <wire x1="5.08" y1="33.02" x2="76.2" y2="33.02" width="0" layer="20"/>
-<text x="2.54" y="30.48" size="1.778" layer="20" align="top-left">akamediasystem 2015
+<text x="2.54" y="30.48" size="1.778" layer="26" rot="MR0" align="top-right">akamediasystem 2015
 stepper jogwheel
 v0.1</text>
 <text x="73.66" y="16.51" size="1.27" layer="25" rot="SMR90">A1 A2 B2 B1</text>
 <rectangle x1="5.08" y1="3.81" x2="30.48" y2="29.21" layer="25"/>
+<text x="30.734" y="6.858" size="1.27" layer="25">EncB-Gnd-EncA</text>
 </plain>
 <libraries>
 <library name="EasyDriver">
@@ -565,7 +566,10 @@ Please make sure your boards conform to these design rules.</description>
 <elements>
 <element name="U$1" library="EasyDriver" package="EASYDRIVER_V44" value="EASYDRIVER_V44" x="44.45" y="12.7" rot="MR180"/>
 <element name="U$2" library="adafruit" package="PROTRINKET" value="PRO_TRINKET" x="50.8" y="24.13" rot="R270"/>
-<element name="ROTARY-ENCODER" library="SparkFun-Connectors" package="1X03_LOCK_LONGPADS" value="" x="35.56" y="10.16"/>
+<element name="ENC" library="SparkFun-Connectors" package="1X03_LOCK_LONGPADS" value="" x="35.56" y="10.16" smashed="yes">
+<attribute name="NAME" x="37.846" y="12.954" size="1.27" layer="25" font="vector"/>
+<attribute name="VALUE" x="34.29" y="6.858" size="1.27" layer="27" font="vector"/>
+</element>
 <element name="OLED" library="SparkFun-Connectors" package="1X04_LOCK_LONGPADS" value="" x="5.08" y="12.7" rot="R90"/>
 <element name="CN1" library="SparkFun-Connectors" package="POWER_JACK_PTH_BREAD" value="POWER_JACKPTH_BREAD" x="83.82" y="10.16" rot="MR270">
 <attribute name="PROD_ID" value="PRT-10811" x="83.82" y="10.16" size="1.778" layer="28" rot="MR270" display="off"/>
@@ -583,7 +587,7 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="U$2" pad="USB"/>
 </signal>
 <signal name="ENC-A">
-<contactref element="ROTARY-ENCODER" pad="3"/>
+<contactref element="ENC" pad="3"/>
 <contactref element="U$2" pad="3"/>
 <wire x1="53.34" y1="10.16" x2="40.64" y2="10.16" width="0.6096" layer="16"/>
 <wire x1="53.721" y1="16.51" x2="53.34" y2="16.51" width="0.6096" layer="1"/>
@@ -592,7 +596,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="53.34" y1="13.97" x2="53.34" y2="10.16" width="0.6096" layer="16"/>
 </signal>
 <signal name="GND">
-<contactref element="ROTARY-ENCODER" pad="2"/>
+<contactref element="ENC" pad="2"/>
 <contactref element="U$1" pad="GND2"/>
 <contactref element="U$1" pad="GND3"/>
 <contactref element="OLED" pad="2"/>
@@ -618,15 +622,15 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="76.2" y1="10.16" x2="76.2" y2="7.62" width="0.6096" layer="1"/>
 <wire x1="73.66" y1="5.08" x2="73.12" y2="5.36" width="0.6096" layer="1"/>
 <wire x1="76.2" y1="10.16" x2="75.92" y2="10.16" width="0.6096" layer="1"/>
-<wire x1="35.56" y1="27.94" x2="27.94" y2="20.32" width="0.1524" layer="1"/>
-<wire x1="60.96" y1="27.94" x2="35.56" y2="27.94" width="0.1524" layer="1"/>
-<wire x1="60.96" y1="20.32" x2="60.96" y2="27.94" width="0.1524" layer="1"/>
+<wire x1="35.56" y1="27.94" x2="27.94" y2="20.32" width="0.6096" layer="1"/>
+<wire x1="60.96" y1="27.94" x2="35.56" y2="27.94" width="0.6096" layer="1"/>
+<wire x1="60.96" y1="20.32" x2="60.96" y2="27.94" width="0.6096" layer="1"/>
 <wire x1="63.5" y1="7.62" x2="63.5" y2="5.08" width="0.6096" layer="16"/>
 <wire x1="69.85" y1="7.62" x2="63.5" y2="7.62" width="0.6096" layer="16"/>
 <wire x1="69.85" y1="7.62" x2="73.12" y2="5.36" width="0.6096" layer="16"/>
 </signal>
 <signal name="ENC-B">
-<contactref element="ROTARY-ENCODER" pad="1"/>
+<contactref element="ENC" pad="1"/>
 <contactref element="U$2" pad="5"/>
 <wire x1="39.37" y1="6.35" x2="35.56" y2="10.16" width="0.1524" layer="16"/>
 <wire x1="48.26" y1="6.35" x2="39.37" y2="6.35" width="0.1524" layer="16"/>
@@ -637,17 +641,17 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="DIR">
 <contactref element="U$1" pad="DIR"/>
 <contactref element="U$2" pad="11"/>
-<wire x1="68.58" y1="22.86" x2="68.58" y2="31.75" width="0.1524" layer="1"/>
-<wire x1="66.04" y1="20.32" x2="68.58" y2="22.86" width="0.1524" layer="1"/>
-<wire x1="68.58" y1="31.75" x2="68.961" y2="31.75" width="0.1524" layer="1"/>
+<wire x1="68.58" y1="22.86" x2="69.088" y2="31.75" width="0.6096" layer="1"/>
+<wire x1="66.04" y1="20.32" x2="68.58" y2="22.86" width="0.6096" layer="1"/>
+<wire x1="69.088" y1="31.75" x2="68.961" y2="31.75" width="0.6096" layer="1"/>
 </signal>
 <signal name="STEP">
 <contactref element="U$1" pad="STEP"/>
 <contactref element="U$2" pad="10"/>
-<wire x1="67.31" y1="27.94" x2="71.12" y2="31.75" width="0.1524" layer="16"/>
-<wire x1="63.5" y1="24.13" x2="67.31" y2="27.94" width="0.1524" layer="1"/>
-<wire x1="63.5" y1="20.32" x2="63.5" y2="24.13" width="0.1524" layer="1"/>
-<wire x1="71.12" y1="31.75" x2="71.501" y2="31.75" width="0.1524" layer="16"/>
+<wire x1="67.31" y1="27.94" x2="71.628" y2="27.94" width="0.6096" layer="16"/>
+<wire x1="63.5" y1="24.13" x2="67.31" y2="27.94" width="0.6096" layer="1"/>
+<wire x1="63.5" y1="20.32" x2="63.5" y2="24.13" width="0.6096" layer="1"/>
+<wire x1="71.628" y1="27.94" x2="71.501" y2="31.75" width="0.6096" layer="16"/>
 <via x="67.31" y="27.94" extent="1-16" drill="0.3302"/>
 </signal>
 <signal name="MS1">
@@ -690,9 +694,9 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="U$1" pad="A2"/>
 <contactref element="MOTOR" pad="2"/>
 <wire x1="72.39" y1="20.32" x2="78.486" y2="20.32" width="0.6096" layer="1"/>
-<wire x1="72.39" y1="17.78" x2="72.39" y2="20.32" width="0.6096" layer="1"/>
-<wire x1="44.45" y1="17.78" x2="72.39" y2="17.78" width="0.6096" layer="1"/>
-<wire x1="44.45" y1="7.62" x2="44.45" y2="17.78" width="0.6096" layer="1"/>
+<wire x1="72.39" y1="18.542" x2="72.39" y2="20.32" width="0.6096" layer="1"/>
+<wire x1="44.45" y1="18.542" x2="72.39" y2="18.542" width="0.6096" layer="1"/>
+<wire x1="44.45" y1="7.62" x2="44.45" y2="18.542" width="0.6096" layer="1"/>
 <wire x1="38.1" y1="7.62" x2="44.45" y2="7.62" width="0.6096" layer="1"/>
 <wire x1="33.02" y1="2.54" x2="38.1" y2="2.54" width="0.6096" layer="1"/>
 <wire x1="38.1" y1="2.54" x2="38.1" y2="7.62" width="0.6096" layer="1"/>
@@ -717,9 +721,9 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="OLED" pad="3"/>
 <contactref element="U$2" pad="A4"/>
 <wire x1="39.37" y1="27.94" x2="5.08" y2="17.78" width="0.1524" layer="16"/>
-<wire x1="48.26" y1="27.94" x2="39.37" y2="27.94" width="0.1524" layer="16"/>
-<wire x1="48.26" y1="31.75" x2="48.26" y2="27.94" width="0.1524" layer="16"/>
-<wire x1="48.26" y1="31.75" x2="48.641" y2="31.75" width="0.1524" layer="16"/>
+<wire x1="48.768" y1="27.94" x2="39.37" y2="27.94" width="0.1524" layer="16"/>
+<wire x1="48.768" y1="31.75" x2="48.768" y2="27.94" width="0.1524" layer="16"/>
+<wire x1="48.768" y1="31.75" x2="48.641" y2="31.75" width="0.1524" layer="16"/>
 </signal>
 <signal name="SCL">
 <contactref element="U$2" pad="A5"/>

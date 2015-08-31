@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -3674,7 +3674,7 @@ Mating wall wart : TOL-00298 (and others)</description>
 <parts>
 <part name="U$1" library="EasyDriver" deviceset="EASYDRIVER_V44" device=""/>
 <part name="U$2" library="adafruit" deviceset="PRO_TRINKET" device=""/>
-<part name="ROTARY-ENCODER" library="SparkFun-Connectors" deviceset="M03" device="LOCK_LONGPADS"/>
+<part name="ENC" library="SparkFun-Connectors" deviceset="M03" device="LOCK_LONGPADS"/>
 <part name="OLED" library="SparkFun-Connectors" deviceset="M04" device="LOCK_LONGPADS"/>
 <part name="CN1" library="SparkFun-Connectors" deviceset="POWER_JACK" device="PTH_BREAD"/>
 <part name="MOTOR" library="SparkFun-Connectors" deviceset="M04" device="LOCK_LONGPADS"/>
@@ -3686,7 +3686,7 @@ Mating wall wart : TOL-00298 (and others)</description>
 <instances>
 <instance part="U$1" gate="G$1" x="27.94" y="58.42" rot="R90"/>
 <instance part="U$2" gate="G$1" x="129.54" y="45.72" rot="R90"/>
-<instance part="ROTARY-ENCODER" gate="G$1" x="81.28" y="45.72"/>
+<instance part="ENC" gate="G$1" x="81.28" y="45.72"/>
 <instance part="OLED" gate="G$1" x="83.82" y="78.74"/>
 <instance part="CN1" gate="G$1" x="20.32" y="17.78"/>
 <instance part="MOTOR" gate="G$1" x="106.68" y="78.74"/>
@@ -3696,7 +3696,7 @@ Mating wall wart : TOL-00298 (and others)</description>
 <nets>
 <net name="ENC-A" class="0">
 <segment>
-<pinref part="ROTARY-ENCODER" gate="G$1" pin="3"/>
+<pinref part="ENC" gate="G$1" pin="3"/>
 <wire x1="88.9" y1="48.26" x2="93.98" y2="48.26" width="0.1524" layer="91"/>
 <label x="91.44" y="48.26" size="1.778" layer="95"/>
 </segment>
@@ -3708,7 +3708,7 @@ Mating wall wart : TOL-00298 (and others)</description>
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="ROTARY-ENCODER" gate="G$1" pin="2"/>
+<pinref part="ENC" gate="G$1" pin="2"/>
 <wire x1="88.9" y1="45.72" x2="93.98" y2="45.72" width="0.1524" layer="91"/>
 <label x="91.44" y="45.72" size="1.778" layer="95"/>
 </segment>
@@ -3754,7 +3754,7 @@ Mating wall wart : TOL-00298 (and others)</description>
 </net>
 <net name="ENC-B" class="0">
 <segment>
-<pinref part="ROTARY-ENCODER" gate="G$1" pin="1"/>
+<pinref part="ENC" gate="G$1" pin="1"/>
 <wire x1="88.9" y1="43.18" x2="93.98" y2="43.18" width="0.1524" layer="91"/>
 <label x="91.44" y="43.18" size="1.778" layer="95"/>
 </segment>
