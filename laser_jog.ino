@@ -25,6 +25,8 @@ AccelStepper stepper1(AccelStepper::DRIVER, step_pin_1, dir_pin_1);
 
 // PINS
 #define OLED_RESET 4  // FWIW this isn't used right now, as my i2c OLED screen only has 4 inputs
+#define MS1 6
+#define MS2 8
 // connect SCL to A5
 // connect SDA to A4
 // encoder wiring bildr.org/2012/08/rotary-encoder-arduino/
